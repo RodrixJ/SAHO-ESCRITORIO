@@ -1,0 +1,12 @@
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\bin\Debug\SAHO.exe.config
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\bin\Debug\SAHO.exe
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\bin\Debug\SAHO.pdb
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.Form1.resources
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.Properties.Resources.resources
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.csproj.GenerateResource.Cache
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.exe
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.pdb
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.Inicio.resources
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.HacerReserva.resources
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.csprojResolveAssemblyReference.cache
+c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.BuscarReserva.resources
