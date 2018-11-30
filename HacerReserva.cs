@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SAHO
 {
@@ -16,6 +17,7 @@ namespace SAHO
         {
             InitializeComponent();
         }
+        //datos de cliente
         string nombrea;
         string nacionalid;
         string sexo;
@@ -23,14 +25,19 @@ namespace SAHO
         string cedul;
         int totalg;
         int numdias=1;
+        //servicios
         string sertv;
         string serinter;
         string serdesa;
         string seraire;
-        int numc;
+        int numc=0;
+        int precio;
+
+        
         int prueba = 1;
         int probando;
 
+        //vaiables de precio
         int individua = 12;
         int matrimonia = 45;
         int tipotres = 60;
@@ -39,6 +46,7 @@ namespace SAHO
         int inter = 6;
         int desa = 5;
 
+        //control cantidad de cuarto 
         string[] cuartosin = new string[3];
         string[] cuartosma = new string[3];
         string[] cuartosdo = new string[3];
@@ -46,9 +54,7 @@ namespace SAHO
 
         private void HacerReserva_Load(object sender, EventArgs e)
         {
-
-
-
+            //campos bloqueados
             nombre.Enabled = false;
             cedula.Enabled = false;
             nacionalidad.Enabled = false;
@@ -67,12 +73,16 @@ namespace SAHO
 
         private void agregar_Click(object sender, EventArgs e)
         {
+
+            //desbloquea campos al seleccionar un tipo habitacion
             
             if(indivudual.Checked==false && matrimonial.Checked==false && doble.Checked==false){
                 MessageBox.Show("Elija tipo de habitacion");
 
             }
             else{
+                m.Enabled = true;
+                f.Enabled = true;
             nombre.Enabled = true;
             cedula.Enabled = true;
             nacionalidad.Enabled = true;
@@ -85,6 +95,9 @@ namespace SAHO
 
         private void indivudual_CheckedChanged(object sender, EventArgs e)
         {
+            tipo = "Individual";
+            precio = 12;
+            //control calculos automaticos de total basandose en el tipo de cuarto individual
           
             dias.Text = Convert.ToString(prueba);
 
@@ -126,7 +139,9 @@ namespace SAHO
 
         private void matrimonial_CheckedChanged(object sender, EventArgs e)
         {
-           
+            tipo = "Matrimonial";
+            precio = 25;
+            //control calculos automaticos de total basandose en el tipo de cuarto matrimonial
             dias.Text = Convert.ToString(prueba);
 
             if (dias.Text == "")
@@ -159,6 +174,9 @@ namespace SAHO
 
         private void doble_CheckedChanged(object sender, EventArgs e)
         {
+            tipo = "Doble";
+            precio = 60;
+            //control calculos automaticos de total basandose en el tipo de cuarto doble
            
              dias.Text = Convert.ToString(prueba);
 
@@ -200,23 +218,28 @@ namespace SAHO
 
         private void nombre_TextChanged(object sender, EventArgs e)
         {
-            nombrea = nombre.ToString();
+            // asignacion del nombre
+            nombrea = nombre.Text;
 
 
         }
 
         private void cedula_TextChanged(object sender, EventArgs e)
         {
-            cedul = cedula.ToString();
+            // asignacion cedula
+            cedul = cedula.Text;
         }
 
         private void nacionalidad_TextChanged(object sender, EventArgs e)
         {
-            nacionalid = nacionalidad.ToString();
+            // asignacion del nacionalidad
+            nacionalid = nacionalidad.Text;
         }
 
         private void dias_TextChanged(object sender, EventArgs e)
         {
+
+            //asignacion de dias en el hotel ademas calculo de de factura basandose en los dias que se hospedara
             probando = totalg;
 
          
@@ -252,33 +275,32 @@ namespace SAHO
 
         private void cuarto_TextChanged(object sender, EventArgs e)
         {
-
-
-
-
-
-
-           
-
+            numc = 3;
 
         }
 
         private void tv_CheckedChanged(object sender, EventArgs e)
         {
-
-            dias.Text = Convert.ToString(prueba);
+            sertv = "Utiliza";
+            //calculo de factura basandose en los servicios de television
 
             if (tv.Checked == false)
             {
+                if (Convert.ToInt32(dias.Text) > 1)
+                {
+                    tele = tele * Convert.ToInt32(dias.Text);
+                }
                
                 totalg = totalg - tele;
                 total.Text = Convert.ToString(totalg);
+                tele = tele / Convert.ToInt32(dias.Text);
            
             }
             else
             {
                 if (tv.Checked == true)
                 {
+                    dias.Text = Convert.ToString(prueba);
                     if (dias.Text != "")
                     {
                         tele = tele * Convert.ToInt32(dias.Text);
@@ -331,13 +353,19 @@ namespace SAHO
 
         private void internet_CheckedChanged(object sender, EventArgs e)
         {
-            dias.Text = Convert.ToString(prueba);
+            serinter = "Utiliza";
 
+            //calculo de factura basandose en los servicios de internet
             if (internet.Checked == false)
             {
+                if (Convert.ToInt32(dias.Text) > 1)
+                {
+                    inter = inter * Convert.ToInt32(dias.Text);
+                }
                
                 totalg = totalg - inter;
                 total.Text = Convert.ToString(totalg);
+                inter = inter / Convert.ToInt32(dias.Text);
            
 
 
@@ -347,6 +375,8 @@ namespace SAHO
 
                 if (internet.Checked == true)
                 {
+                    dias.Text = Convert.ToString(prueba);
+
                     if (dias.Text != "")
                     {
                         inter = inter * Convert.ToInt32(dias.Text);
@@ -404,20 +434,25 @@ namespace SAHO
 
         private void aire_CheckedChanged(object sender, EventArgs e)
         {
-            dias.Text = Convert.ToString(prueba);
+            seraire = "Utiliza";
             if (aire.Checked == false)
             {
-               
+                if (Convert.ToInt32(dias.Text) > 1)
+                {
+                    air = air * Convert.ToInt32(dias.Text);
+                }
+
+
                 totalg = totalg - air;
                 total.Text = Convert.ToString(totalg);
-               
+                air = air / Convert.ToInt32(dias.Text);
             }
             else
             {
 
                 if (aire.Checked == true)
                 {
-
+                    dias.Text = Convert.ToString(prueba);
                     if (dias.Text != "")
                     {
                         air = air * Convert.ToInt32(dias.Text);
@@ -472,14 +507,20 @@ namespace SAHO
 
         private void desayuno_CheckedChanged(object sender, EventArgs e)
         {
-            dias.Text = Convert.ToString(prueba);
+            serdesa = "Utiliza";
+            //calculo de factura basandose en los servicios de dasayuno
+           
             if (desayuno.Checked == false)
             {
-                
 
+                if (Convert.ToInt32(dias.Text) > 1)
+                {
+                    desa = desa * Convert.ToInt32(dias.Text);
+                }
 
                 totalg = totalg - desa;
                 total.Text = Convert.ToString(totalg);
+                air = desa / Convert.ToInt32(dias.Text);
               
             }
             else
@@ -487,6 +528,7 @@ namespace SAHO
 
                 if (desayuno.Checked == true)
                 {
+                    dias.Text = Convert.ToString(prueba);
                     if (dias.Text != "")
                     {
                         desa = desa * Convert.ToInt32(dias.Text);
@@ -542,6 +584,7 @@ namespace SAHO
 
         private void nombre_Enter(object sender, EventArgs e)
         {
+            //codigo borra contenido del campo
             if (nombre.Text == "Nombre y apellido del cliente")
             {
                 nombre.Text = "";
@@ -551,6 +594,7 @@ namespace SAHO
 
         private void nombre_Leave(object sender, EventArgs e)
         {
+          
             if (nombre.Text == "")
             {
                 nombre.Text = "Nombre y apellido del cliente";
@@ -569,7 +613,7 @@ namespace SAHO
 
         private void cedula_Leave(object sender, EventArgs e)
         {
-
+            //limpiar Campo
             if (cedula.Text == "")
             {
                 cedula.Text = "Numero de cedula o pasaporte";
@@ -579,6 +623,8 @@ namespace SAHO
 
         private void nacionalidad_Enter(object sender, EventArgs e)
         {
+
+            //limpiar campo
             if (nacionalidad.Text == "Nacionalidad")
             {
                 nacionalidad.Text = "";
@@ -588,6 +634,7 @@ namespace SAHO
 
         private void nacionalidad_Leave(object sender, EventArgs e)
         {
+
             {
                 nacionalidad.Text = "Nacionalidad";
                 nacionalidad.ForeColor = Color.DimGray;
@@ -596,6 +643,7 @@ namespace SAHO
 
         private void dias_Enter(object sender, EventArgs e)
         {
+            //limpiar campo de dias 
             if (dias.Text == "Nro de dias a hospedar")
             {
                 dias.Text = "";
@@ -633,6 +681,8 @@ namespace SAHO
 
         private void vercuarto_Click(object sender, EventArgs e)
         {
+
+            // control de los cuartos del hotel
             if(indivudual.Checked==true){
                 MessageBox.Show("cuarto 1:"+ cuartosin[0] + "\n" + "cuarto 2:" + cuartosin[1] + "\n" + "cuarto 3:" + cuartosin[2] );
               
@@ -659,6 +709,9 @@ namespace SAHO
         {
             if (indivudual.Checked == true)
             {
+                //numc=int.Parse(guadarreserva.Text);
+                
+
                 if (Convert.ToInt32(cuarto.Text) > 3 || Convert.ToInt32(cuarto.Text) < 0)
                 {
                     MessageBox.Show("Este numero de cuarto no existe en este tipo");
@@ -684,14 +737,14 @@ namespace SAHO
 
                             break;
                     }
-
+                
 
                 }
             }
             if (matrimonial.Checked == true)
             {
 
-
+                
                 if (Convert.ToInt32(cuarto.Text) > 6 || Convert.ToInt32(cuarto.Text) < 4)
                 {
                     MessageBox.Show("Este numero de cuarto no existe en este tipo");
@@ -723,7 +776,7 @@ namespace SAHO
             if (doble.Checked == true)
             {
 
-
+                
                 if (Convert.ToInt32(cuarto.Text) > 9 || Convert.ToInt32(cuarto.Text) < 7)
                 {
                     MessageBox.Show("Este numero de cuarto no existe en este tipo");
@@ -751,7 +804,217 @@ namespace SAHO
 
                 }
 
+            } 
+            
+            //control de servicios
+
+
+
+            if (tv.Checked == false)
+            {
+                sertv = "No utiliza";
             }
+            if (internet.Checked == false)
+            {
+                serinter = "No utiliza";
+            }
+            if (aire.Checked == false)
+            {
+                seraire = "No utiliza";
+            }
+            if (desayuno.Checked == false)
+            {
+                serdesa = "No utiliza";
+            }
+
+
+
+            //registros y conexion a la base de datos 
+            try {
+                string MyConnection2 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+                string Query = "INSERT INTO cliente(cedula_pasaporte, nacionalidad, nombres_apellidos, sexo) VALUES('" + cedul + "','" + nacionalid + "','" + nombrea + "','" + sexo + "');";
+                MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+                MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
+                MySqlDataReader MyReader2;
+                MyConn2.Open();
+                MyReader2 = MyCommand2.ExecuteReader();
+                MyConn2.Close();
+                MessageBox.Show("Datos guardados correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+                string MyConnection3 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+                string Query2 = "INSERT INTO reserva(fecha_entrada, fecha_Salida, gasto_total, numero_dias,cedula_pasaporte) VALUES('" + this.fechae.Text + "','" + this.fechasa.Text + "','" + totalg + "','" + numdias + "','" + cedul + "');";
+                MySqlConnection MyConn3 = new MySqlConnection(MyConnection3);
+                MySqlCommand MyCommand3 = new MySqlCommand(Query2, MyConn3);
+                MySqlDataReader MyReader3;
+                MyConn3.Open();
+                MyReader3 = MyCommand3.ExecuteReader();
+                MyConn3.Close();
+                MessageBox.Show("Datos guardados correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+                string MyConnection4 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+                string Query3 = "INSERT INTO habitacion(tipo_habitacion,numero_habitacion,precio,cedula_pasaporte) VALUES('" + tipo + "','" + numc + "','" + precio + "','" + cedul + "');";
+               MySqlConnection MyConn4 = new MySqlConnection(MyConnection4);
+                MySqlCommand MyCommand4 = new MySqlCommand(Query3, MyConn4);
+                MySqlDataReader MyReader4;
+                MyConn4.Open();
+                MyReader4 = MyCommand4.ExecuteReader();
+                MyConn4.Close();
+                MessageBox.Show("Datos guardados correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            try
+            {
+                string MyConnection5 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+                string Query4 = "INSERT INTO servicios(tv_cable,internet,aire_acondicionado,desayuno,id_habitacion) VALUES('" + sertv + "','" + serinter + "','" + seraire + "','" + serdesa + "','" + numc + "');";
+                MySqlConnection MyConn5 = new MySqlConnection(MyConnection5);
+                MySqlCommand MyCommand5 = new MySqlCommand(Query4, MyConn5);
+                MySqlDataReader MyReader5;
+                MyConn5.Open();
+                MyReader5 = MyCommand5.ExecuteReader();
+                MyConn5.Close();
+                MessageBox.Show("Datos guardados correctamente");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            nombre.Clear();
+            cedula.Clear();
+            nacionalidad.Clear();
+            dias.Clear();
+            cuarto.Clear();
+            m.Checked = false;
+            f.Checked = false;
+            indivudual.Checked = false;
+            matrimonial.Checked = false;
+            doble.Checked = false;
+            internet.Checked = false;
+            desayuno.Checked = false;
+            tv.Checked = false;
+            aire.Checked = false;
+            total.Text = "";
+
+
+
+            /*
+            try
+            {
+            string MyConnection2 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;"; 
+            
+            string Query = "INSERT INTO cliente(cedula_pasaporte, nacionalidad, nombres_apellidos, sexo) VALUES('" + cedul + "','" + nacionalid + "','" + nombrea + "','" + sexo + "');";
+            
+                //MessageBox.Show("INSERT INTO reserva(fecha_entrada, fecha_Salida, gasto_total, numero_dias,cedula_pasaporte) VALUES('" + this.fechae.Text + "','" + this.fechasa.Text + "','" + totalg + "','" + numdias + "','" + cedul + "';");
+                
+            
+            MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+            MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
+            MySqlDataReader MyReader2;
+            MyConn2.Open();
+            MyReader2 = MyCommand2.ExecuteReader();
+            MyConn2.Close();
+
+            string MyConnection3 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+            string Query2 = "INSERT INTO reserva(fecha_entrada, fecha_Salida, gasto_total, numero_dias,cedula_pasaporte) VALUES('" + this.fechae.Text + "','" + this.fechasa.Text + "','" + totalg + "','" + numdias + "','" + cedul + "');";
+            MySqlConnection MyConn3 = new MySqlConnection(MyConnection3);
+            MySqlCommand MyCommand3 = new MySqlCommand(Query2, MyConn3);
+            MySqlDataReader MyReader3;
+            MyConn3.Open();
+            MyReader3 = MyCommand3.ExecuteReader();
+            MyConn3.Close();
+
+            string MyConnection4 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+            string Query3 = "INSERT INTO habitacion(tipo_habitacion,numero_habitacion,precio,cedula_pasaporte) VALUES('" + tipo + "','" + numc + "','" + precio + "','" + cedul + "');";    
+            MySqlConnection MyConn4 = new MySqlConnection(MyConnection4);
+            MySqlCommand MyCommand4 = new MySqlCommand(Query3, MyConn4);
+            MySqlDataReader MyReader4;
+            MyConn4.Open();
+            MyReader4 = MyCommand4.ExecuteReader();
+            MyConn4.Close();
+
+            string MyConnection5 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+            string Query4 = "INSERT INTO servicios(tv_cable,internet,aire_acondicionado,desayuno,id_habitacion) VALUES('" + sertv + "','" + serinter + "','" + seraire + "','" + serdesa + "','"+ prueba +"');";
+            MySqlConnection MyConn5 = new MySqlConnection(MyConnection5);
+            MySqlCommand MyCommand5 = new MySqlCommand(Query4, MyConn5);
+            MySqlDataReader MyReader5;
+            MyConn5.Open();
+            MyReader5 = MyCommand5.ExecuteReader();
+            MyConn5.Close();
+
+            string MyConnection6 = "datasource=127.0.0.1;port=3306;username=root;password=;database=reserva;";
+            MySqlConnection MyConn6 = new MySqlConnection(MyConnection6);            
+            MySqlCommand MyCommand6 = new MySqlCommand(Query, MyConn6);
+            MySqlDataReader MyReader6;
+            MyConn6.Open(); 
+            MyReader6 = MyCommand6.ExecuteReader();
+            MessageBox.Show("Datos guardados correctamente");
+            MyConn6.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } */
+            //ocupar cuarto seleccionado
+            
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void m_CheckedChanged(object sender, EventArgs e)
+        {
+            if(m.Checked==true){
+                sexo = "masculino";
+
+            }
+        }
+
+        private void f_CheckedChanged(object sender, EventArgs e)
+        {
+            if (f.Checked == true)
+            {
+                sexo = "femenino";
+
+            }
+
+        }
+
+        private void fechasa_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fechae_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

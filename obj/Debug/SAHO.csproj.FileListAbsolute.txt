@@ -10,3 +10,15 @@ c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.
 c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.HacerReserva.resources
 c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.csprojResolveAssemblyReference.cache
 c:\users\jannely\documents\visual studio 2012\Projects\SAHO\SAHO\obj\Debug\SAHO.BuscarReserva.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\bin\Debug\SAHO.exe.config
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.exe
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.pdb
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\bin\Debug\SAHO.exe
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\bin\Debug\SAHO.pdb
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.csprojResolveAssemblyReference.cache
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.BuscarReserva.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.Form1.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.HacerReserva.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.Inicio.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.Properties.Resources.resources
+C:\Users\Hackathon 2018\Documents\SAHO\SAHO\obj\Debug\SAHO.csproj.GenerateResource.Cache

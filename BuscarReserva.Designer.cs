@@ -28,71 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.pantalla = new System.Windows.Forms.DataGridView();
+            this.historial = new System.Windows.Forms.Button();
+            this.buscar = new System.Windows.Forms.Button();
+            this.numero = new System.Windows.Forms.TextBox();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.nume = new System.Windows.Forms.TextBox();
+            this.desocupar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pantalla)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // pantalla
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(152, 108);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(821, 273);
-            this.dataGridView1.TabIndex = 53;
+            this.pantalla.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.pantalla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pantalla.Location = new System.Drawing.Point(152, 108);
+            this.pantalla.Name = "pantalla";
+            this.pantalla.Size = new System.Drawing.Size(821, 273);
+            this.pantalla.TabIndex = 53;
             // 
-            // button1
+            // historial
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.LightGray;
-            this.button1.Location = new System.Drawing.Point(683, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(237, 36);
-            this.button1.TabIndex = 59;
-            this.button1.Text = "Ver historial";
-            this.button1.UseVisualStyleBackColor = false;
+            this.historial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
+            this.historial.FlatAppearance.BorderSize = 0;
+            this.historial.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.historial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.historial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.historial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historial.ForeColor = System.Drawing.Color.LightGray;
+            this.historial.Location = new System.Drawing.Point(683, 44);
+            this.historial.Name = "historial";
+            this.historial.Size = new System.Drawing.Size(237, 36);
+            this.historial.TabIndex = 59;
+            this.historial.Text = "Ver historial";
+            this.historial.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // buscar
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.LightGray;
-            this.button5.Location = new System.Drawing.Point(417, 44);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(237, 36);
-            this.button5.TabIndex = 58;
-            this.button5.Text = "Buscar Reserva";
-            this.button5.UseVisualStyleBackColor = false;
+            this.buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
+            this.buscar.FlatAppearance.BorderSize = 0;
+            this.buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.buscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buscar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscar.ForeColor = System.Drawing.Color.LightGray;
+            this.buscar.Location = new System.Drawing.Point(417, 44);
+            this.buscar.Name = "buscar";
+            this.buscar.Size = new System.Drawing.Size(237, 36);
+            this.buscar.TabIndex = 58;
+            this.buscar.Text = "Buscar Reserva";
+            this.buscar.UseVisualStyleBackColor = false;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
-            // textBox3
+            // numero
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(60)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.LightGray;
-            this.textBox3.Location = new System.Drawing.Point(217, 52);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(170, 24);
-            this.textBox3.TabIndex = 57;
-            this.textBox3.Text = "Numero de cuarto";
+            this.numero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(60)))));
+            this.numero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numero.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numero.ForeColor = System.Drawing.Color.LightGray;
+            this.numero.Location = new System.Drawing.Point(217, 52);
+            this.numero.Name = "numero";
+            this.numero.Size = new System.Drawing.Size(170, 24);
+            this.numero.TabIndex = 57;
+            this.numero.Text = "Numero de cuarto";
             // 
             // lineShape4
             // 
@@ -116,27 +117,6 @@
             this.shapeContainer1.TabIndex = 60;
             this.shapeContainer1.TabStop = false;
             // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.Black;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 223;
-            this.lineShape1.X2 = 393;
-            this.lineShape1.Y1 = 87;
-            this.lineShape1.Y2 = 87;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(60)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.LightGray;
-            this.textBox1.Location = new System.Drawing.Point(175, 413);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 24);
-            this.textBox1.TabIndex = 61;
-            this.textBox1.Text = "Numero de habitacion";
-            // 
             // lineShape2
             // 
             this.lineShape2.BorderColor = System.Drawing.Color.Black;
@@ -146,21 +126,42 @@
             this.lineShape2.Y1 = 444;
             this.lineShape2.Y2 = 444;
             // 
-            // button2
+            // lineShape1
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.LightGray;
-            this.button2.Location = new System.Drawing.Point(417, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(237, 36);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Desocupar habitacion";
-            this.button2.UseVisualStyleBackColor = false;
+            this.lineShape1.BorderColor = System.Drawing.Color.Black;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 223;
+            this.lineShape1.X2 = 393;
+            this.lineShape1.Y1 = 87;
+            this.lineShape1.Y2 = 87;
+            // 
+            // nume
+            // 
+            this.nume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(60)))));
+            this.nume.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nume.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nume.ForeColor = System.Drawing.Color.LightGray;
+            this.nume.Location = new System.Drawing.Point(175, 413);
+            this.nume.Name = "nume";
+            this.nume.Size = new System.Drawing.Size(214, 24);
+            this.nume.TabIndex = 61;
+            this.nume.Text = "Numero de habitacion";
+            // 
+            // desocupar
+            // 
+            this.desocupar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(48)))), ((int)(((byte)(68)))));
+            this.desocupar.FlatAppearance.BorderSize = 0;
+            this.desocupar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.desocupar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.desocupar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.desocupar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desocupar.ForeColor = System.Drawing.Color.LightGray;
+            this.desocupar.Location = new System.Drawing.Point(417, 408);
+            this.desocupar.Name = "desocupar";
+            this.desocupar.Size = new System.Drawing.Size(237, 36);
+            this.desocupar.TabIndex = 62;
+            this.desocupar.Text = "Desocupar habitacion";
+            this.desocupar.UseVisualStyleBackColor = false;
             // 
             // BuscarReserva
             // 
@@ -168,18 +169,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
             this.ClientSize = new System.Drawing.Size(1040, 506);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.desocupar);
+            this.Controls.Add(this.nume);
+            this.Controls.Add(this.historial);
+            this.Controls.Add(this.buscar);
+            this.Controls.Add(this.numero);
+            this.Controls.Add(this.pantalla);
             this.Controls.Add(this.shapeContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BuscarReserva";
             this.Text = "BuscarReserva";
             this.Load += new System.EventHandler(this.BuscarReserva_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pantalla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,15 +188,15 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridView pantalla;
+        private System.Windows.Forms.Button historial;
+        private System.Windows.Forms.Button buscar;
+        private System.Windows.Forms.TextBox numero;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape4;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox nume;
+        private System.Windows.Forms.Button desocupar;
     }
 }

@@ -298,6 +298,7 @@
             this.f.TabIndex = 120;
             this.f.Text = "Femenino";
             this.f.UseVisualStyleBackColor = true;
+            this.f.CheckedChanged += new System.EventHandler(this.f_CheckedChanged);
             // 
             // m
             // 
@@ -311,6 +312,7 @@
             this.m.TabIndex = 119;
             this.m.Text = "Masculino";
             this.m.UseVisualStyleBackColor = true;
+            this.m.CheckedChanged += new System.EventHandler(this.m_CheckedChanged);
             // 
             // nombre
             // 
@@ -420,6 +422,7 @@
             this.fechasa.Name = "fechasa";
             this.fechasa.Size = new System.Drawing.Size(151, 23);
             this.fechasa.TabIndex = 130;
+            this.fechasa.ValueChanged += new System.EventHandler(this.fechasa_ValueChanged);
             // 
             // fechas
             // 
@@ -445,6 +448,7 @@
             this.fechae.Name = "fechae";
             this.fechae.Size = new System.Drawing.Size(151, 23);
             this.fechae.TabIndex = 128;
+            this.fechae.ValueChanged += new System.EventHandler(this.fechae_ValueChanged);
             // 
             // label5
             // 
