@@ -567,6 +567,7 @@
             this.vercuarto.TabIndex = 135;
             this.vercuarto.Text = "Ver cuartos disponibles";
             this.vercuarto.UseVisualStyleBackColor = false;
+            this.vercuarto.Click += new System.EventHandler(this.vercuarto_Click);
             // 
             // verreserva
             // 
@@ -601,6 +602,7 @@
             this.guadarreserva.TabIndex = 133;
             this.guadarreserva.Text = "Guardar Reserva";
             this.guadarreserva.UseVisualStyleBackColor = false;
+            this.guadarreserva.Click += new System.EventHandler(this.guadarreserva_Click);
             // 
             // HacerReserva
             // 

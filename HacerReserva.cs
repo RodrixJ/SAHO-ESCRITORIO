@@ -22,13 +22,14 @@ namespace SAHO
         string tipo;
         string cedul;
         int totalg;
-        int numdias;
+        int numdias=1;
         string sertv;
         string serinter;
         string serdesa;
         string seraire;
         int numc;
-
+        int prueba = 1;
+        int probando;
 
         int individua = 12;
         int matrimonia = 45;
@@ -38,7 +39,9 @@ namespace SAHO
         int inter = 6;
         int desa = 5;
 
-
+        string[] cuartosin = new string[3];
+        string[] cuartosma = new string[3];
+        string[] cuartosdo = new string[3];
 
 
         private void HacerReserva_Load(object sender, EventArgs e)
@@ -64,6 +67,12 @@ namespace SAHO
 
         private void agregar_Click(object sender, EventArgs e)
         {
+            
+            if(indivudual.Checked==false && matrimonial.Checked==false && doble.Checked==false){
+                MessageBox.Show("Elija tipo de habitacion");
+
+            }
+            else{
             nombre.Enabled = true;
             cedula.Enabled = true;
             nacionalidad.Enabled = true;
@@ -71,10 +80,24 @@ namespace SAHO
             cuarto.Enabled = true;
             fechae.Enabled = true;
             fechasa.Enabled = true;
+            }
         }
 
         private void indivudual_CheckedChanged(object sender, EventArgs e)
         {
+          
+            dias.Text = Convert.ToString(prueba);
+
+            if (dias.Text != "")
+            {
+
+                individua = individua * Convert.ToInt32(dias.Text);
+
+            }
+            if (Convert.ToInt32(dias.Text) > 1)
+            {
+                dias.Text = Convert.ToString(prueba);
+            }
 
             tv.Checked = false;
             internet.Checked = false;
@@ -89,12 +112,11 @@ namespace SAHO
                 internet.Enabled = true;
                 aire.Enabled = true;
                 desayuno.Enabled = true;
-            }
-
-            if (indivudual.Checked == true)
-            {
+           
 
                 total.Text = Convert.ToString(individua);
+                totalg = individua;
+                individua=individua / Convert.ToInt32(dias.Text);
 
             }
 
@@ -104,6 +126,15 @@ namespace SAHO
 
         private void matrimonial_CheckedChanged(object sender, EventArgs e)
         {
+           
+            dias.Text = Convert.ToString(prueba);
+
+            if (dias.Text == "")
+            {
+                matrimonia = matrimonia * Convert.ToInt32(dias.Text);
+            }
+
+           
 
             tv.Checked = false;
             internet.Checked = false;
@@ -121,12 +152,28 @@ namespace SAHO
             {
 
                 total.Text = Convert.ToString(matrimonia);
-
+                totalg = matrimonia;
+                matrimonia = matrimonia / Convert.ToInt32(dias.Text);
             }
         }
 
         private void doble_CheckedChanged(object sender, EventArgs e)
         {
+           
+             dias.Text = Convert.ToString(prueba);
+
+             if (dias.Text != "")
+             {
+
+                 tipotres = tipotres * Convert.ToInt32(dias.Text);
+
+             }
+
+
+             if (Convert.ToInt32(dias.Text) > 1)
+             {
+                 dias.Text = Convert.ToString(prueba);
+             }
 
             tv.Checked = false;
             internet.Checked = false;
@@ -145,6 +192,8 @@ namespace SAHO
             {
 
                 total.Text = Convert.ToString(tipotres);
+                totalg = tipotres;
+                tipotres = tipotres / Convert.ToInt32(dias.Text);
 
             }
         }
@@ -168,54 +217,85 @@ namespace SAHO
 
         private void dias_TextChanged(object sender, EventArgs e)
         {
-            
-           
-           
-            
-            if(dias.Text!=""){
-                numdias = Convert.ToInt32(dias.Text);
-            totalg = totalg * numdias;
-            total.Text = Convert.ToString(totalg);
+            probando = totalg;
+
+         
+                if (dias.Text != "")
+                {
+                    numdias = Convert.ToInt32(dias.Text);
+                    totalg = totalg * numdias;
+                    total.Text = Convert.ToString(totalg);
+
+                }
+                else
+                {
+                    if (dias.Text =="")
+                    {
+
+                        totalg = totalg / numdias;
+                        if (totalg > 0)
+                        {
+                            total.Text = Convert.ToString(totalg);
+                        }
+                    }
+                }
             }
 
 
 
 
+            
+           
 
-        }
+
+        
 
         private void cuarto_TextChanged(object sender, EventArgs e)
         {
 
-            if (cuarto.Text != "")
-            {
-                numc = Convert.ToInt32(cuarto.Text);
-            }
+
+
+
+
+
+           
 
 
         }
 
         private void tv_CheckedChanged(object sender, EventArgs e)
         {
+
+            dias.Text = Convert.ToString(prueba);
+
             if (tv.Checked == false)
             {
+               
                 totalg = totalg - tele;
                 total.Text = Convert.ToString(totalg);
+           
             }
             else
             {
                 if (tv.Checked == true)
                 {
+                    if (dias.Text != "")
+                    {
+                        tele = tele * Convert.ToInt32(dias.Text);
+
+                    }
                     if (indivudual.Checked == true)
                     {
                         totalg = individua + tele;
                         total.Text = Convert.ToString(totalg);
+                 
 
                     }
                     if (matrimonial.Checked == true)
                     {
                         totalg = matrimonia + tele;
                         total.Text = Convert.ToString(totalg);
+                        
 
                     }
 
@@ -223,7 +303,7 @@ namespace SAHO
                     {
                         totalg = tipotres + tele;
                         total.Text = Convert.ToString(totalg);
-
+                      
                     }
 
                 }
@@ -251,26 +331,41 @@ namespace SAHO
 
         private void internet_CheckedChanged(object sender, EventArgs e)
         {
+            dias.Text = Convert.ToString(prueba);
+
             if (internet.Checked == false)
             {
+               
                 totalg = totalg - inter;
                 total.Text = Convert.ToString(totalg);
+           
+
+
             }
             else
             {
 
                 if (internet.Checked == true)
                 {
+                    if (dias.Text != "")
+                    {
+                        inter = inter * Convert.ToInt32(dias.Text);
+
+                    }
+
+
                     if (indivudual.Checked == true)
                     {
                         totalg = individua + inter;
                         total.Text = Convert.ToString(totalg);
+                        
 
                     }
                     if (matrimonial.Checked == true)
                     {
                         totalg = matrimonia + inter;
                         total.Text = Convert.ToString(totalg);
+                     
 
                     }
 
@@ -278,6 +373,7 @@ namespace SAHO
                     {
                         totalg = tipotres + inter;
                         total.Text = Convert.ToString(totalg);
+                      
 
                     }
 
@@ -308,27 +404,38 @@ namespace SAHO
 
         private void aire_CheckedChanged(object sender, EventArgs e)
         {
-
+            dias.Text = Convert.ToString(prueba);
             if (aire.Checked == false)
             {
+               
                 totalg = totalg - air;
                 total.Text = Convert.ToString(totalg);
+               
             }
             else
             {
 
                 if (aire.Checked == true)
                 {
+
+                    if (dias.Text != "")
+                    {
+                        air = air * Convert.ToInt32(dias.Text);
+
+                    }
+
                     if (indivudual.Checked == true)
                     {
                         totalg = individua + air;
                         total.Text = Convert.ToString(totalg);
+                     
 
                     }
                     if (matrimonial.Checked == true)
                     {
                         totalg = matrimonia + air;
                         total.Text = Convert.ToString(totalg);
+                     
 
                     }
 
@@ -336,6 +443,7 @@ namespace SAHO
                     {
                         totalg = tipotres + air;
                         total.Text = Convert.ToString(totalg);
+                       
 
                     }
 
@@ -364,27 +472,39 @@ namespace SAHO
 
         private void desayuno_CheckedChanged(object sender, EventArgs e)
         {
-
+            dias.Text = Convert.ToString(prueba);
             if (desayuno.Checked == false)
             {
+                
+
+
                 totalg = totalg - desa;
                 total.Text = Convert.ToString(totalg);
+              
             }
             else
             {
 
                 if (desayuno.Checked == true)
                 {
+                    if (dias.Text != "")
+                    {
+                        desa = desa * Convert.ToInt32(dias.Text);
+
+                    }
+
+
                     if (indivudual.Checked == true)
                     {
                         totalg = individua + desa;
                         total.Text = Convert.ToString(totalg);
-
+                       
                     }
                     if (matrimonial.Checked == true)
                     {
                         totalg = matrimonia + desa;
                         total.Text = Convert.ToString(totalg);
+                     
 
                     }
 
@@ -392,6 +512,7 @@ namespace SAHO
                     {
                         totalg = tipotres + desa;
                         total.Text = Convert.ToString(totalg);
+                     
 
                     }
 
@@ -485,8 +606,8 @@ namespace SAHO
         private void dias_Leave(object sender, EventArgs e)
         {
             {
-                dias.Text = "Nacionalidad";
-                dias.ForeColor = Color.DimGray;
+                //dias.Text = "Nacionalidad";
+                //dias.ForeColor = Color.DimGray;
             }
         }
 
@@ -501,9 +622,135 @@ namespace SAHO
 
         private void cuarto_Leave(object sender, EventArgs e)
         {
+            
+                //cuarto.Text = "Numero de cuarto";
+                //cuarto.ForeColor = Color.DimGray;
+
+
+                
+            }
+        
+
+        private void vercuarto_Click(object sender, EventArgs e)
+        {
+            if(indivudual.Checked==true){
+                MessageBox.Show("cuarto 1:"+ cuartosin[0] + "\n" + "cuarto 2:" + cuartosin[1] + "\n" + "cuarto 3:" + cuartosin[2] );
+              
+
+            }
+
+            if (matrimonial.Checked == true)
             {
-                cuarto.Text = "Numero de cuarto";
-                cuarto.ForeColor = Color.DimGray;
+                MessageBox.Show("cuarto 4:" + cuartosma[0] + "\n" + "cuarto 5:" + cuartosma[1] + "\n" + "cuarto 6:" + cuartosma[2]);
+
+
+            }
+
+            if (doble.Checked == true)
+            {
+                MessageBox.Show("cuarto 7:" + cuartosdo[0] + "\n" + "cuarto 8:" + cuartosdo[1] + "\n" + "cuarto 9:" + cuartosdo[2]);
+
+
+            }
+
+        }
+
+        private void guadarreserva_Click(object sender, EventArgs e)
+        {
+            if (indivudual.Checked == true)
+            {
+                if (Convert.ToInt32(cuarto.Text) > 3 || Convert.ToInt32(cuarto.Text) < 0)
+                {
+                    MessageBox.Show("Este numero de cuarto no existe en este tipo");
+                }
+                else
+                {
+                    switch (Convert.ToInt32(cuarto.Text))
+                    {
+                        case 1: cuartosin[0] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 2: cuartosin[1] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 3: cuartosin[2] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+
+
+                            break;
+                    }
+
+
+                }
+            }
+            if (matrimonial.Checked == true)
+            {
+
+
+                if (Convert.ToInt32(cuarto.Text) > 6 || Convert.ToInt32(cuarto.Text) < 4)
+                {
+                    MessageBox.Show("Este numero de cuarto no existe en este tipo");
+                }
+                else
+                {
+                    switch (Convert.ToInt32(cuarto.Text))
+                    {
+                        case 4: cuartosma[0] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 5: cuartosma[1] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 6: cuartosma[2] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+                    }
+
+
+                }
+            }
+
+            if (doble.Checked == true)
+            {
+
+
+                if (Convert.ToInt32(cuarto.Text) > 9 || Convert.ToInt32(cuarto.Text) < 7)
+                {
+                    MessageBox.Show("Este numero de cuarto no existe en este tipo");
+                }
+                else
+                {
+                    switch (Convert.ToInt32(cuarto.Text))
+                    {
+                        case 7: cuartosdo[0] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 8: cuartosdo[1] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+
+                        case 9: cuartosdo[2] = "Ocupado";
+                            numc = Convert.ToInt32(cuarto.Text);
+                            cuarto.Clear();
+                            break;
+                    }
+
+
+                }
+
             }
         }
     }
